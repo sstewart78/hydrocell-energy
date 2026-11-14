@@ -7,8 +7,12 @@ import {
 	X,
  } from 'lucide-react'
 
-export default function TopNav() {
-	const [activeTab, setActiveTab] = useState('home');
+type TopNavProps = {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+};
+
+export default function TopNav({ activeTab, setActiveTab }: TopNavProps) {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 

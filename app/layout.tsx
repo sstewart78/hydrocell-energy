@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import TopNav from '@/app/ui/topnav'
+import NavigationWrapper from "./ui/navigation-wrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,8 +16,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`h-full antialiased`}
     >
       <body className="bg-background text-foreground">
-        <TopNav />
-        {children}
+        <NavigationWrapper>
+          {children}
+        </NavigationWrapper>   
       </body>
     </html>
   );
