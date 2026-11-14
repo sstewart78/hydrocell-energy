@@ -4,6 +4,7 @@ import { useState } from "react";
 import TopNav from '@/app/ui/topnav';
 import Footer from '@/app/ui/footer';
 import Overview from "@/app/ui/overview";
+import Technology from "@/app/ui/technology";
 
 export default function NavigationWrapper({
   children,
@@ -17,6 +18,12 @@ export default function NavigationWrapper({
       <TopNav activeTab={activeTab} setActiveTab={setActiveTab} />
       <div>
         {activeTab === 'overview' && <Overview setActiveTab={setActiveTab} />}
+        {activeTab === 'technology' && <Technology />}
+         {/* {activeTab === 'products' && <ProductsView setSelectedProduct={setSelectedProduct} />} */}
+        {/* {activeTab === 'applications' && <ApplicationsView />} */}
+        {/* {activeTab === 'simulator' && <SimulatorView simulationState={simulationState} setSimulationState={setSimulationState} />} */}
+        {/* {activeTab === 'about' && <AboutView />} */}
+        {/* {activeTab === 'contact' && <ContactView />} */}
       </div>
       <main className="flex-1">
         {children}
