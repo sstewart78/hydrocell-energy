@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import TopNav from '@/app/ui/topnav'
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +15,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`h-full antialiased`}
     >
-      <body className="bg-background text-foreground">{children}</body>
+      <body className="bg-background text-foreground">
+        <TopNav />
+        {children}
+      </body>
     </html>
   );
 }
