@@ -17,7 +17,7 @@ export default function TopNav({ activeTab, setActiveTab }: TopNavProps) {
 
 
   const navLinks = [
-    { id: 'home', label: 'Overview' },
+    { id: 'overview', label: 'Overview' },
     { id: 'technology', label: 'Technology' },
     { id: 'products', label: 'Products' },
     { id: 'applications', label: 'Applications' },
@@ -29,7 +29,7 @@ export default function TopNav({ activeTab, setActiveTab }: TopNavProps) {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-cyan-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('home')}>
+        <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('overview')}>
           <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
             <Droplets className="w-6 h-6 text-slate-950 stroke-[2.5]" />
           </div>
