@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import TopNav from '@/app/ui/topnav'
+import TopNav from '@/app/ui/topnav';
+import Footer from '@/app/ui/footer';
 
 export default function NavigationWrapper({
   children,
@@ -18,6 +19,7 @@ export default function NavigationWrapper({
         {children}
       </main>
 
+      <Footer setActiveTab={setActiveTab}/>
     </div>
   );
 }
