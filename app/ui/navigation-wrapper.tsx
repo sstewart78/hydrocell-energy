@@ -7,6 +7,7 @@ import Overview from "@/app/ui/overview";
 import Technology from "@/app/ui/technology";
 import Products from "@/app/ui/products";
 import Applications from "@/app/ui/applications";
+import Simulator, { Sim, type Simulation} from "./simulator";
 
 export default function NavigationWrapper({
   children,
@@ -14,6 +15,7 @@ export default function NavigationWrapper({
   children: React.ReactNode;
 }) {
   const [activeTab, setActiveTab] = useState("overview");
+  const [simulationState, setSimulationState] = useState<Simulation>(Sim);
 
   return (
     <div className="flex flex-col min-h-full">
@@ -23,7 +25,7 @@ export default function NavigationWrapper({
         {activeTab === 'technology' && <Technology />}
         {activeTab === 'products' && <Products />}
         {activeTab === 'applications' && <Applications />}
-        {/* {activeTab === 'simulator' && <SimulatorView simulationState={simulationState} setSimulationState={setSimulationState} />} */}
+        {activeTab === 'simulator' && <Simulator simulationState={simulationState} setSimulationState={setSimulationState} />}
         {/* {activeTab === 'about' && <AboutView />} */}
         {/* {activeTab === 'contact' && <ContactView />} */}
       </div>
