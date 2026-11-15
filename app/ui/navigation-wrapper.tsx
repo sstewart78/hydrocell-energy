@@ -6,6 +6,7 @@ import Footer from '@/app/ui/footer';
 import Overview from "@/app/ui/overview";
 import Technology from "@/app/ui/technology";
 import Products from "@/app/ui/products";
+import Applications from "@/app/ui/applications";
 
 export default function NavigationWrapper({
   children,
@@ -21,7 +22,7 @@ export default function NavigationWrapper({
         {activeTab === 'overview' && <Overview setActiveTab={setActiveTab} />}
         {activeTab === 'technology' && <Technology />}
         {activeTab === 'products' && <Products />}
-        {/* {activeTab === 'applications' && <ApplicationsView />} */}
+        {activeTab === 'applications' && <Applications />}
         {/* {activeTab === 'simulator' && <SimulatorView simulationState={simulationState} setSimulationState={setSimulationState} />} */}
         {/* {activeTab === 'about' && <AboutView />} */}
         {/* {activeTab === 'contact' && <ContactView />} */}
