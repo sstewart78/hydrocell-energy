@@ -1,7 +1,10 @@
-import Simulator, {type SimulatorProps}  from "@/app/ui/simulator"
+"use client";
 
-type PageProps = SimulatorProps
+import { useState } from "react";
+import Simulator, { Sim, type Simulation } from "@/app/ui/simulator";
 
-export default function Page({simulationState, setSimulationState}: PageProps ) {
+export default function Page() {
+  const [simulationState, setSimulationState] = useState<Simulation>(Sim);
+
   return <Simulator simulationState={simulationState} setSimulationState={setSimulationState} />
 }
