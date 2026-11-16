@@ -8,7 +8,8 @@ import Technology from "@/app/ui/technology";
 import Products from "@/app/ui/products";
 import Applications from "@/app/ui/applications";
 import Simulator, { Sim, type Simulation} from "./simulator";
-import About from "./about";
+import About from "@/app/ui//about";
+import Contact from "@/app/ui/contact"
 
 export default function NavigationWrapper({
   children,
@@ -28,12 +29,11 @@ export default function NavigationWrapper({
         {activeTab === 'applications' && <Applications />}
         {activeTab === 'simulator' && <Simulator simulationState={simulationState} setSimulationState={setSimulationState} />}
         {activeTab === 'about' && <About />}
-        {/* {activeTab === 'contact' && <ContactView />} */}
+        {activeTab === 'contact' && <Contact />}
       </div>
       <main className="flex-1">
         {children}
       </main>
-
       <Footer setActiveTab={setActiveTab}/>
     </div>
   );
