@@ -1,4 +1,8 @@
-import {type Dispatch, type SetStateAction } from "react";
+import {
+  type Dispatch, 
+  type SetStateAction,
+  useEffect,
+} from "react";
 import { ChevronRight } from 'lucide-react';
 
 export type Simulation = {
@@ -28,6 +32,24 @@ export type SimulatorProps = {
 
 export default function Simulator({simulationState, setSimulationState}: SimulatorProps) {
   
+  // Interactive simulation loop
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval> | undefined;
+    if (simulationState.isOperating) {
+      interval = setInterval(() => {
+        setSimulationState(prev => ({
+          ...prev,
+          waterLevel: prev.mode === 'storage' ? Math.max(20, prev.waterLevel - 0.2) : Math.min(95, prev.waterLevel + 0.3),
+          hydrogenPressure: prev.mode === 'storage' ? Math.min(70, prev.hydrogenPressure + 0.5) : Math.max(15, prev.hydrogenPressure - 0.7),
+          powerOutput: prev.mode === 'storage' ? 0 : +(3.5 + Math.random() * 3).toFixed(1)
+        }));
+      }, 1000);
+    }
+    return () => {
+      if (interval !== undefined) clearInterval(interval);
+    }
+  }, [setSimulationState, simulationState.isOperating, simulationState.mode]);
+
   const toggleMode = () => {
     setSimulationState(prev => ({
       ...prev,
