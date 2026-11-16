@@ -1,30 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
 	Droplets,
 	Menu,
 	X,
  } from 'lucide-react'
+ import Link from "next/link";
 
 type TopNavProps = {
   activeTab: string;
   setActiveTab: (tab: string) => void;
 };
 
+const navLinks = [
+	{ id: 'overview', label: 'Overview', href: '/overview' },
+	{ id: 'technology', label: 'Technology', href: '/technology' },
+	{ id: 'products', label: 'Products', href: '/products' },
+	{ id: 'applications', label: 'Applications', href: '/applications' },
+	{ id: 'simulator', label: 'Live Simulator', href: '/simulator' },
+	{ id: 'about', label: 'About Us', href: '/about' },
+	{ id: 'contact', label: 'Contact', href: '/contact' },
+];
+
 export default function TopNav({ activeTab, setActiveTab }: TopNavProps) {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+	// Sync state with true browser pathname changes on mount and popstate
+  useEffect(() => {
+    const handlePathChange = () => {
+      const path = window.location.pathname;
+      const matched = navLinks.find(link => link.href === path);
+      if (matched) {
+        setActiveTab(matched.id);
+      } else if (path === '/' || path === '') {
+        setActiveTab('home');
+      }
+    };
 
-  const navLinks = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'technology', label: 'Technology' },
-    { id: 'products', label: 'Products' },
-    { id: 'applications', label: 'Applications' },
-    { id: 'simulator', label: 'Live Simulator' },
-    { id: 'about', label: 'About Us' },
-    { id: 'contact', label: 'Contact' },
-  ];
+    handlePathChange();
+    window.addEventListener('popstate', handlePathChange);
+    return () => window.removeEventListener('popstate', handlePathChange);
+  }, [setActiveTab]);
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/80 border-b border-cyan-500/20">
@@ -46,17 +63,21 @@ export default function TopNav({ activeTab, setActiveTab }: TopNavProps) {
 				{/* Desktop Navigation */}
 				<nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
 					{navLinks.map((link) => (
-						<button
+						<Link 
 							key={link.id}
-							onClick={() => setActiveTab(link.id)}
-							className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-									activeTab === link.id
-									? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 shadow-sm shadow-cyan-500/20'
-									: 'text-slate-300 hover:text-white hover:bg-slate-900/60'
-							}`}
+							href={link.href}
 						>
-							{link.label}
-						</button>
+							<button
+								onClick={() => setActiveTab(link.id)}
+								className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+										activeTab === link.id
+										? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 shadow-sm shadow-cyan-500/20'
+										: 'text-slate-300 hover:text-white hover:bg-slate-900/60'
+								}`}
+							>
+								{link.label}
+							</button>
+						</Link>
 					))}
 				</nav>
 
