@@ -1,20 +1,26 @@
+import Image from "next/image";
+
 export default function Applications() {
   const apps = [
     {
       title: 'Residential Energy Independence',
-      desc: 'Pair HydroCell with rooftop solar panels to store summer energy as hydrogen, ensuring winter and nighttime power security without toxic lithium batteries.'
+      desc: 'Pair HydroCell with rooftop solar panels to store summer energy as hydrogen, ensuring winter and nighttime power security without toxic lithium batteries.',
+      image: '/residential_energy_independence.avif'
     },
     {
-      title: 'Remote Telecom & Outposts',
-      desc: 'Eliminate diesel fuel delivery trucks in rugged terrain. HydroCell systems run autonomously for months, requiring only rainwater intake.'
+      title: 'Microgrid Communities',
+      desc: 'Decentralized neighborhood power systems fueled entirely by water and solar excess, ensuring uninterrupted community resilience.',
+      image: '/microgrid.avif'
     },
     {
-      title: 'Utility Peak Shifting',
-      desc: 'Wind and solar farms produce surplus power when demand is low. HydroCell converts this surplus into hydrogen gas to feed back into the grid during peak evening hours.'
+      title: 'Industrial Electrolysis Facility',
+      desc: 'Megawatt-scale green hydrogen production for heavy industries, steel manufacturing, and commercial utility storage.',
+      image: '/industrial_scale_hydrolysis.avif'
     },
     {
-      title: 'Emergency Disaster Relief',
-      desc: 'Provide instant, silent, water-producing backup power during grid blackouts and natural disasters where traditional fuel supply chains collapse.'
+      title: 'Marine & Emergency Deployment',
+      desc: 'Zero-emission emergency power generation and marine fuel cell systems delivering reliable off-grid electricity anywhere.',
+      image: '/marine_emergency_deployment.avif'
     }
   ];
 
@@ -31,11 +37,20 @@ export default function Applications() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {apps.map((app, idx) => (
           <div key={idx} className="bg-slate-900/40 border border-slate-800 p-6 rounded-3xl space-y-4 hover:border-cyan-500/40 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold">
-              0{idx + 1}
+            <div className="h-56 overflow-hidden">
+              <Image
+                src={app.image} 
+                alt={app.title} 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                width={1200}
+                height={800}
+              />
             </div>
-            <h3 className="text-xl font-bold text-white">{app.title}</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">{app.desc}</p>
+            <div className="p-8 space-y-3">
+              <div className="text-xs font-semibold text-cyan-400 uppercase tracking-widest">Deployment 0{idx + 1}</div>
+              <h3 className="text-2xl font-bold text-white">{app.title}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{app.desc}</p>
+            </div>
           </div>
         ))}
       </div>
