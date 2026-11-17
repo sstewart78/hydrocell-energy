@@ -1,5 +1,7 @@
 "use client";
 
+import Image from 'next/image';
+
 import { 
   ArrowRight,
   Info,
@@ -48,6 +50,23 @@ export default function Overview({ setActiveTab }: OverviewProps) {
                 <Info className="w-5 h-5 text-cyan-400" />
                 <span>Explore Technology</span>
               </button>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-1 bg-linear-to-r from-cyan-500 to-blue-600 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+              <div className="relative rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl bg-slate-900">
+                <Image
+                  src="/hydrocell_hc-r1_residential_energy_unit.avif"
+                  width={1200}
+                  height={800}
+                  className="w-full h-80 object-cover transform hover:scale-105 transition-transform duration-700"
+                  alt="HydroCell HC-R1 Residential Unit & Innovation Lab"
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-linear-to-t from-slate-950 via-slate-950/70 to-transparent p-6">
+                  <div className="text-xs font-semibold uppercase tracking-widest text-cyan-400 mb-1">Flagship Installation</div>
+                  <div className="text-white font-bold text-lg">HydroCell HC-R1 Residential Energy Unit & R&D Lab</div>
+                </div>
+              </div>
             </div>
 
             {/* Quick Metrics Bar */}
