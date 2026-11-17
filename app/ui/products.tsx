@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { ChevronRight, X } from 'lucide-react';
+import Image from "next/image";
 
 export type Product = {
   id: string;
   name: string;
   category: string;
   description: string;
+  image: string;
   specs: Record<string, string>;
 };
 
@@ -21,6 +23,7 @@ export default function Products() {
       name: 'HydroCell Home H-10',
       category: 'Residential Power',
       description: 'The world’s first integrated water electrolysis and hydrogen fuel storage unit designed for residential solar pairing.',
+      image: '/hydrocell_home_h-10.avif',
       specs: {
         capacity: '30 kWh equivalent',
         output: '5 kW continuous',
@@ -33,6 +36,7 @@ export default function Products() {
       name: 'HydroCell Remote Station X',
       category: 'Remote Infrastructure',
       description: 'Robust, zero-maintenance autonomous power system engineered for telecom towers, mining camps, and research outposts.',
+      image: '/hydrocell_remote_station_x.avif',
       specs: {
         capacity: '150 kWh equivalent',
         output: '15 kW continuous',
@@ -45,6 +49,7 @@ export default function Products() {
       name: 'HydroCell Utility Grid-Box',
       category: 'Industrial Grid Storage',
       description: 'Megawatt-scale containerized power-to-gas storage unit for utility providers and renewable wind/solar farms.',
+      image: '/hydrocell_utility_gridbox.avif',
       specs: {
         capacity: '1.2 MWh equivalent',
         output: '250 kW - 1 MW modular',
@@ -57,6 +62,7 @@ export default function Products() {
       name: 'HydroCell Nomad Generator',
       category: 'Portable Power',
       description: 'A silent, zero-emission replacement for diesel generators in emergency relief, film production, and outdoor construction.',
+      image: '/hydrocell_nomad.avif',
       specs: {
         capacity: '5 kWh cartridge',
         output: '3 kW AC / DC output',
@@ -123,15 +129,26 @@ export default function Products() {
             className="bg-slate-900/60 border border-slate-800 hover:border-cyan-500/50 p-8 rounded-3xl flex flex-col justify-between transition-all group shadow-xl"
           >
             <div>
-              <div className="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-xs font-semibold mb-4">
-                {product.category}
+              <div className="h-48 overflow-hidden relative">
+                <Image 
+                  src={product.image} 
+                  alt={product.name} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  width={1200}
+                  height={800}
+                />
+                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-cyan-400 border border-cyan-500/30 text-xs font-semibold">
+                  {product.category}
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
-                {product.name}
-              </h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                {product.description}
-              </p>
+              <div className="p-8">
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                  {product.name}
+                </h3>
+                <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+                  {product.description}
+                </p>
+              </div>
             </div>
 
             <div className="pt-6 border-t border-slate-800 flex items-center justify-between">
