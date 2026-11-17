@@ -3,6 +3,7 @@ import {
   Droplets,
 	ShieldCheck
  } from 'lucide-react'
+ import Image from 'next/image';
 
 export default function Technology() {
   return (
@@ -100,6 +101,38 @@ export default function Technology() {
             </div>
           </div>
         </div>
+
+        <div className="space-y-6">
+          <div className="rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl bg-slate-900">
+            <Image
+              src="/HydroCell_R_D_Testing.avif" 
+              alt="Engineers at HydroCell Innovation Lab" 
+              className="w-full h-64 object-cover"
+              width={1200}
+              height={800}
+            />
+            <div className="p-4 bg-slate-950 border-t border-slate-900 text-xs text-slate-400 flex items-center justify-between">
+              <span>HydroCell R&D Testing Laboratory, Austin TX</span>
+              <span className="text-cyan-400 font-semibold">ISO-9001 Certified</span>
+            </div>
+          </div>
+        </div>
+        <div className="space-y-6">
+          <div className="rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl bg-slate-900">
+            <Image 
+              src="/industrial_scale_green_hydrogen.avif" 
+              alt="HydroCell Industrial Electrolysis Facility" 
+              className="w-full h-64 object-cover"
+              width={1200}
+              height={800}
+            />
+            <div className="p-4 bg-slate-950 border-t border-slate-900 text-xs text-slate-400 flex items-center justify-between">
+              <span>Industrial Scale Green Hydrogen Electrolysis</span>
+              <span className="text-cyan-400 font-semibold">Automated Monitoring</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
