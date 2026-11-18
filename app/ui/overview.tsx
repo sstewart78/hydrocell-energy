@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import { assetPath } from "@/app/lib/config";
 
 import { 
   ArrowRight,
@@ -56,7 +57,7 @@ export default function Overview({ setActiveTab }: OverviewProps) {
               <div className="absolute -inset-1 bg-linear-to-r from-cyan-500 to-blue-600 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
               <div className="relative rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl bg-slate-900">
                 <Image
-                  src="/hydrocell_hc-r1_residential_energy_unit.avif"
+                  src={assetPath("/hydrocell_hc-r1_residential_energy_unit.avif")}
                   width={1200}
                   height={800}
                   className="w-full h-80 object-cover transform hover:scale-105 transition-transform duration-700"

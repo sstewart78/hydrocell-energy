@@ -1,26 +1,27 @@
 import Image from "next/image";
+import { assetPath } from "@/app/lib/config";
 
 export default function Applications() {
   const apps = [
     {
       title: 'Residential Energy Independence',
       desc: 'Pair HydroCell with rooftop solar panels to store summer energy as hydrogen, ensuring winter and nighttime power security without toxic lithium batteries.',
-      image: '/residential_energy_independence.avif'
+      image: assetPath('/residential_energy_independence.avif')
     },
     {
       title: 'Microgrid Communities',
       desc: 'Decentralized neighborhood power systems fueled entirely by water and solar excess, ensuring uninterrupted community resilience.',
-      image: '/microgrid.avif'
+      image: assetPath('/microgrid.avif')
     },
     {
       title: 'Industrial Electrolysis Facility',
       desc: 'Megawatt-scale green hydrogen production for heavy industries, steel manufacturing, and commercial utility storage.',
-      image: '/industrial_scale_hydrolysis.avif'
+      image: assetPath('/industrial_scale_hydrolysis.avif')
     },
     {
       title: 'Marine & Emergency Deployment',
       desc: 'Zero-emission emergency power generation and marine fuel cell systems delivering reliable off-grid electricity anywhere.',
-      image: '/marine_emergency_deployment.avif'
+      image: assetPath('/marine_emergency_deployment.avif')
     }
   ];
 

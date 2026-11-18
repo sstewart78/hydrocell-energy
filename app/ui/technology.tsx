@@ -4,6 +4,7 @@ import {
 	ShieldCheck
  } from 'lucide-react'
  import Image from 'next/image';
+ import { assetPath } from "@/app/lib/config";
 
 export default function Technology() {
   return (
@@ -105,7 +106,7 @@ export default function Technology() {
         <div className="space-y-6">
           <div className="rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl bg-slate-900">
             <Image
-              src="/HydroCell_R_D_Testing.avif" 
+              src={assetPath("/HydroCell_R_D_Testing.avif")} 
               alt="Engineers at HydroCell Innovation Lab" 
               className="w-full h-64 object-cover"
               width={1200}
@@ -120,7 +121,7 @@ export default function Technology() {
         <div className="space-y-6">
           <div className="rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl bg-slate-900">
             <Image 
-              src="/industrial_scale_green_hydrogen.avif" 
+              src={assetPath("/industrial_scale_green_hydrogen.avif")}
               alt="HydroCell Industrial Electrolysis Facility" 
               className="w-full h-64 object-cover"
               width={1200}
