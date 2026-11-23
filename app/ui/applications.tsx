@@ -11,17 +11,17 @@ export default function Applications() {
     {
       title: 'Microgrid Communities',
       desc: 'Decentralized neighborhood power systems fueled entirely by water and solar excess, ensuring uninterrupted community resilience.',
-      image: assetPath('/microgrid.avif')
+      image: assetPath('/hydrocell_microgrid_community.webp')
     },
     {
       title: 'Industrial Electrolysis Facility',
       desc: 'Megawatt-scale green hydrogen production for heavy industries, steel manufacturing, and commercial utility storage.',
-      image: assetPath('/industrial_scale_hydrolysis.avif')
+      image: assetPath('/hydrocell_electrolysis_facility.webp')
     },
     {
       title: 'Marine & Emergency Deployment',
       desc: 'Zero-emission emergency power generation and marine fuel cell systems delivering reliable off-grid electricity anywhere.',
-      image: assetPath('/marine_emergency_deployment.avif')
+      image: assetPath('/hydrocell_marine_fuel_system.webp')
     }
   ];
 
