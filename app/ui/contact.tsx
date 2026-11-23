@@ -49,7 +49,7 @@ export default function ContactView() {
                   type="text"
                   required
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500 transition"
-                  placeholder="Dr. Alex Vance"
+                  placeholder="Dr. Jonathan Turner"
                 />
               </div>
               <div>
@@ -58,7 +58,7 @@ export default function ContactView() {
                   type="email"
                   required
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500 transition"
-                  placeholder="alex@cleanenergy.org"
+                  placeholder="jturner@cleanenergy.org"
                 />
               </div>
             </div>
