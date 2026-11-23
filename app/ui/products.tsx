@@ -24,7 +24,7 @@ export default function Products() {
       name: 'HydroCell Home H-10',
       category: 'Residential Power',
       description: 'The world’s first integrated water electrolysis and hydrogen fuel storage unit designed for residential solar pairing.',
-      image: assetPath('/hydrocell_home_h-10.avif'),
+      image: assetPath('/hc-r1_residential_unit.webp'),
       specs: {
         capacity: '30 kWh equivalent',
         output: '5 kW continuous',
@@ -37,7 +37,7 @@ export default function Products() {
       name: 'HydroCell Remote Station X',
       category: 'Remote Infrastructure',
       description: 'Robust, zero-maintenance autonomous power system engineered for telecom towers, mining camps, and research outposts.',
-      image: assetPath('/hydrocell_remote_station_x.avif'),
+      image: assetPath('/engineers_at_hydrocell_innovation_lab.webp'),
       specs: {
         capacity: '150 kWh equivalent',
         output: '15 kW continuous',
@@ -50,7 +50,7 @@ export default function Products() {
       name: 'HydroCell Utility Grid-Box',
       category: 'Industrial Grid Storage',
       description: 'Megawatt-scale containerized power-to-gas storage unit for utility providers and renewable wind/solar farms.',
-      image: assetPath('/hydrocell_utility_gridbox.avif'),
+      image: assetPath('/hydrocell_grid_scale_installation.webp'),
       specs: {
         capacity: '1.2 MWh equivalent',
         output: '250 kW - 1 MW modular',
@@ -63,7 +63,7 @@ export default function Products() {
       name: 'HydroCell Nomad Generator',
       category: 'Portable Power',
       description: 'A silent, zero-emission replacement for diesel generators in emergency relief, film production, and outdoor construction.',
-      image: assetPath('/hydrocell_nomad.avif'),
+      image: assetPath('/hydrocell_portable_power_genertator.webp'),
       specs: {
         capacity: '5 kWh cartridge',
         output: '3 kW AC / DC output',
