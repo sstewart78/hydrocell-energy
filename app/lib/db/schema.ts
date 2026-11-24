@@ -3,6 +3,7 @@ import {
   int,
   varchar,
   decimal,
+  uniqueIndex,
   timestamp,
 } from "drizzle-orm/mysql-core";
 
@@ -24,3 +25,18 @@ export const products = mysqlTable("products", {
 
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
+
+// Customers
+export const customers = mysqlTable("customers", {
+  id: int("id").primaryKey().autoincrement(),
+
+  name: varchar("name", { length: 150 }).notNull(),
+
+  email: varchar("email", { length: 255 }).notNull(),
+
+  createdAt: timestamp("created_at")
+    .defaultNow()
+    .notNull(),
+}, (table) => [
+  uniqueIndex("customers_email_idx").on(table.email),
+]);
