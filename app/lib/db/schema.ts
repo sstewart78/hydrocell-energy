@@ -5,6 +5,8 @@ import {
   decimal,
   uniqueIndex,
   timestamp,
+  mysqlEnum,
+  index,
 } from "drizzle-orm/mysql-core";
 
 export const products = mysqlTable("products", {
@@ -39,4 +41,61 @@ export const customers = mysqlTable("customers", {
     .notNull(),
 }, (table) => [
   uniqueIndex("customers_email_idx").on(table.email),
+]);
+
+// Orders
+export const orders = mysqlTable("orders", {
+  id: int("id").primaryKey().autoincrement(),
+
+  customerId: int("customer_id")
+    .notNull()
+    .references(() => customers.id, {
+      onDelete: "restrict",
+    }),
+
+  status: mysqlEnum("status", [
+    "pending",
+    "processing",
+    "fulfilled",
+    "cancelled",
+  ]).notNull().default("pending"),
+
+  total: decimal("total", {
+    precision: 12,
+    scale: 2,
+  }).notNull(),
+
+  createdAt: timestamp("created_at")
+    .defaultNow()
+    .notNull(),
+}, (table) => [
+  index("orders_customer_idx").on(table.customerId),
+  index("orders_status_idx").on(table.status),
+]);
+
+// Order items
+export const orderItems = mysqlTable("order_items", {
+  id: int("id").primaryKey().autoincrement(),
+
+  orderId: int("order_id")
+    .notNull()
+    .references(() => orders.id, {
+      onDelete: "restrict",
+    }),
+
+  productId: int("product_id")
+    .notNull()
+    .references(() => products.id, {
+      onDelete: "restrict",
+    }),
+
+  quantity: int("quantity").notNull(),
+
+  unitPrice: decimal("unit_price", {
+    precision: 10,
+    scale: 2,
+  }).notNull(),
+}, (table) => [
+  index("order_items_order_idx").on(table.orderId),
+  index("order_items_product_idx").on(table.productId),
 ]);
